@@ -372,28 +372,24 @@ router.get('/payment/success',checkdata,(req,res)=>{
 
 router.post("/email",(req,res,next)=>{
      let data = req.body.title
-let p=0
-//      data.forEach((value)=>{
+     data.forEach((value)=>{
       
-//          let pdata = new product_detail({
-//     product_name : value.title,
-//     product_price : value.price,
-//     product_quantity : value.quantity
-//  })
-//    pdata.save((err,info)=>{
-//          if (err) {
-//              next(new createError("Found some Error!"))
-//          } else {
+         let pdata = new product_detail({
+    product_name : value.title,
+    product_price : value.price,
+    product_quantity : value.quantity
+ })
+   pdata.save((err,info)=>{
+         if (err) {
+             next(new createError("Found some Error!"))
+         } else {
            
-//          }
+         }
       
-//    })
+   })
 
-//      })
- p++
-     if (p!=0) {
-        res.redirect("/abc")
-   }
+     })
+ 
 })
 
 
