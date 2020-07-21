@@ -131,11 +131,18 @@ router.post('/login',(req,res,next)=>{
                         next(new Error("data not found!"))
                     } else {
                         if (info) {
-                           res.render('dashboard',{
-                               title : "dashboard",
-                               data : udata,
-                               datum : info
+                            product_value.count({},(err,infod)=>{
+                                if (err) throw err
+                                else{
+                                  res.render('dashboard',{
+                                      title : "dashboard",
+                                      data : udata,
+                                      datum : info,
+                                      pdata : infod
+                                  })
+                                }
                            })
+
                         } 
                     }
                 })
