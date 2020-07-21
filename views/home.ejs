@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include('header')%>
+    <div class="row">
+        <div class="col-sm-2" style="margin-left: 20px;">
+            <% if(category.length>0){  %>
+                <a href="/abc" class="list-group-item active">
+                    All product
+                  </a>
+
+                  <div class="list-group">
+                <% category.forEach((row)=>{ %>  
+                        <a href="/abc/<%= row.category_name%>" class="list-group-item">
+                          <%= row.category_name%>
+                        </a>
+                        <% }) %>
+                      </div>   
+            <% } %>
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <% if(msg!=""){ %>
+            <p><h1><%= msg%></h1></p>
+            <% } %>
+            <% if(product.length>0){  %>
+                    <% for(var i=0;i<product.length;i++){ %>
+                       <div class="col-sm-4">
+                        <div class="card" style="width:300px;height: 345px;">
+                            <img class="card-img-top" style="width: 270px;height: 210px;margin-left: 20px;margin-top: 3px;" src="../static/upload/<%=product[i].image%>" alt="Card image">
+                            <div class="card-body text-center">
+                                <p class="h5"><%= product[i].title%></p>
+                            </div>
+                            <div class="card-footer">
+                              
+                             <% if(discount.length>0){ %>
+                                  <% for(var j=i;j==i;j++){  %>
+                                    <a class="btn btn-primary" href="/abc/cart" onclick="add_to_cart('<%= product[i]._id%>','<%= product[i].title%>','<%= discount[j]%>')">Add to cart </a>
+                                    <button class="btn btn-outline-primary">&#8360;&nbsp;<p><s><%=product[i].price%></s></p><%=discount[i]%>&nbsp&nbsp;&nbsp;<%=product[i].discount%>%off &nbsp;</button>
+                                  <% } %>
+                             <% } else { %>
+                                <button class="btn btn-outline-primary">&#8360;&nbsp;<%=product[i].price%></button>
+                                <% } %>
+                            </div>
+                          </div>
+                       </div> 
+                    <% } %>
+                <% } %>
+        </div>
+    </div>
+    <script src="../static/indexfront.js"></script>
+</body>
+</html>

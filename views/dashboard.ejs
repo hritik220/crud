@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include('dashheader')%>
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-4">
+            <div class="card" style="width:400px;padding-left: 73%">
+                <a href="#"><i class="fa fa-users fa-4x"></i></a>
+                <div class="card-body">
+                  <h4 class="card-title">Users</h4>
+                  <p class="card-text">2345</p>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card" style="width:400px;padding-left: 40%">
+                <a href="#"><i class="fa fa-product-hunt fa-4x"></i></a>
+                <div class="card-body">
+                  <h4 class="card-title">Products</h4>
+                  <p class="card-text">12345</p>
+                  
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card" style="width:400px">
+                <a href="#"><i class="fa fa-list-alt fa-4x"></i></a>
+                <div class="card-body">
+                  <h4 class="card-title">Category</h4>
+                  <p class="card-text">45</p>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-4" data-toggle="modal" data-target="#category" style="margin-top: 30px;padding-left:30%;">
+            <div class="card" style="width:400px">
+                <a href="#"><i class="fa fa-list fa-4x"></i></a>
+                <div class="card-body">
+                    <small>Add categories</small>
+                  <h4 class="card-title">Add Category</h4> 
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-4" data-toggle="modal" data-target="#product" style="margin-top: 30px;padding-left: 30%">
+            <div class="card" style="width:400px">
+                <a href="#"><i class="fa fa-plus fa-4x"></i></a>
+                <div class="card-body">
+                    <small>Add products</small>
+                  <h4 class="card-title">Add Products</h4>     
+                </div>
+              </div>
+          </div>
+      </div>
+    
+    </div>
+
+<!-- Modal -->
+<div id="category" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add category</h4>
+      </div>
+      <div class="modal-body">
+          <form class="form-group" action="/abc/category" method="post">
+              <label for="name">Category Name</label>
+              <input type="text" name="cat" placeholder="enter category name" class="form-control">
+              <label for="description">Description</label>
+              <textarea class="form-control" name="desc" placeholder="enter detail about category"></textarea>
+              <br>
+              <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Add Category</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div id="product" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add category</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-group" action="/abc/product" method="post" enctype="multipart/form-data">
+                <label for="title">Product Title</label>
+                <input type="text" name="ptitle" placeholder="enter product title" class="form-control">
+                <label for="Description">Product Description</label>
+                <input type="text" name="pdesc" placeholder="enter product description" class="form-control">
+                 <label for="price">Product price</label>
+                 <input type="number" class="form-control" placeholder="enter product price"
+                 name="pprice">
+                 <label for="discount">Product Discount</label>
+                 <input type="text" class="form-control" placeholder="enter product discount"
+                 name="pdiscount">
+                 <label for="quality">Product Quality</label>
+                 <input type="text" name="pquality" class="form-control" placeholder="enter product quality">
+                 <br>
+                 <div>
+                    <label for="category">category</label>
+                    <select name="pcategory" class="form-control">
+                        <option value="" selected>Please select category</option>
+                        <% datum.forEach((row)=>{%>
+                            <option value="<%= row.category_name%>"><%=row.category_name%>
+                            </option>
+                        <% })%>
+                    </select>
+                 </div>   
+                 <label for="image">Image</label>
+                 <input type="file" name="file">
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Add Product</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <script src="../static/indexfront.js"></script>
+</body>
+</html>

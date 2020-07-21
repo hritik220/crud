@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+      <div class="container" style="margin-top: 45px;width: 50%;">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">
+                  <div class="row">
+                      <div class="col-sm-9">
+                         <h4><strong>Billing Address</strong></h4>
+                      </div>
+      
+                  </div>
+              </h4>
+            </div>
+            
+            <div class="card" style="background-color:whitesmoke;">
+               <div class="card-body"  style="padding-left: 10px;margin-top: 5px;">
+                 <div class="row">
+                    <form class="form-group" action="/abc/display" method="POST">
+                        <div class="col-sm-3">
+                          <label for="name" style="padding-left: 55px;margin-top: 7px;">Name</label>
+                        </div>
+                        <div class="col-sm-9" style="padding-right:20px;">
+                           <input type="text" class="form-control" placeholder="Enter your name" name="name">
+                        </div>
+                        <br><br>
+                        <div class="col-sm-3">
+                            <label for="name" style="padding-left: 55px;margin-top: 7px;">Email</label>
+                          </div>
+                          <div class="col-sm-9" style="padding-right:20px;">
+                             <input type="email" class="form-control" placeholder="Enter your Email" name="email">
+                          </div>
+                        <br><br>
+                        <div class="col-sm-3">
+                            <label for="name" style="padding-left: 55px;margin-top: 7px;">Contact</label>
+                          </div>
+                          <div class="col-sm-9" style="padding-right:20px;">
+                             <input type="number" class="form-control" placeholder="Enter your Mobile No" name="contact">
+                          </div>
+                          <br><br>
+                          <div class="col-sm-3">
+                            <label for="name" style="padding-left: 55px;margin-top: 7px;">Address</label>
+                          </div>
+                          <div class="col-sm-9" style="padding-right:20px;"> 
+                            <textarea class="form-control" style="resize: none;" placeholder="Enter your Address" name="address"></textarea>
+                          </div>
+                          <br><br><br>
+                          <div class="col-sm-12 text-center">
+                            <input type="submit" value="Continue" class="btn btn-info">
+                          </div> 
+                    </form>
+                    <br><br>
+                 </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-sm-9" >
+                      
+                    </div>
+                </div> 
+            </div>
+          </div>        
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-sm-9" >
+               
+                </div>
+                <div class="col-sm-3"id="dis">
+                    
+                </div>
+            </div> 
+        </div>
+      </div>
+     
+      </div>
+      <script src="../static/indexfront.js"></script>
+</body>
+</html>
