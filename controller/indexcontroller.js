@@ -70,12 +70,17 @@ router.get('/login',(req,res,next)=>{
              next(new Error("data not found!"))
          } else {
              if (info) {
-                 console.log(info)
-                res.render('dashboard',{
-                    title : "dashboard",
-                    data : mdata,
-                    datum : info
-                })
+                 product_value.count({},(err,infod)=>{
+                      if (err) throw err
+                      else{
+                        res.render('dashboard',{
+                            title : "dashboard",
+                            data : mdata,
+                            datum : info,
+                            pdata : infod
+                        })
+                      }
+                 })              
              } 
          }
     })
